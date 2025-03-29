@@ -1,8 +1,11 @@
-from libqtile import qtile
+import os
+import subprocess
+
+from libqtile import qtile, hook
 from libqtile.config import Click, Drag, Key
 from libqtile.lazy import lazy
 
-from keys import keys
+from keys import keys, mod
 from screens import screens
 from layouts import layouts
 from groups import groups
@@ -76,3 +79,8 @@ wl_xcursor_size = 24
 # We choose LG3D to maximize irony: it is a 3D non-reparenting WM written in
 # java that happens to be on java's whitelist.
 wmname = "LG3D"
+
+@hook.subscribe.startup_once
+def autostart():
+    home = os.path.expanduser('~/.config/qtile/scripts/autostart.sh')
+    subprocess.call(home)

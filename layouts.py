@@ -1,8 +1,15 @@
 from libqtile import layout
 from libqtile.config import Match
 
+from colors import current_theme as colors
+
 layouts = [
-    layout.Columns(border_focus_stack=["#d75f5f", "#8f3d3d"], border_width=4),
+    layout.Columns(
+        # border_focus_stack=["#d75f5f", "#8f3d3d"], border_width=4
+        border_focus=colors['primary'],
+        border_normal=colors['inactive'],
+        border_width=2
+        ),
     layout.Max(),
     # Add more layouts as needed
 ]

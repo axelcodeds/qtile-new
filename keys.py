@@ -38,6 +38,13 @@ keys = [
     Key([mod, "control"], "r", lazy.reload_config(), desc="Reload the config"),
     Key([mod, "control"], "q", lazy.shutdown(), desc="Shutdown Qtile"),
     Key([mod], "r", lazy.spawncmd(), desc="Spawn a command using a prompt widget"),
+
+    # Cambio de teclado US ↔ Latam con Win + Space
+    Key(
+        ["mod4"], "space",
+        lazy.widget["keyboardlayout"].next_keyboard(),
+        desc="Cambiar disposición de teclado (US ↔ Latam)"
+    ),
 ]
 
 # VT keys for Wayland (added in config.py)
