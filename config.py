@@ -1,5 +1,4 @@
 import os
-import subprocess
 
 from libqtile import qtile, hook
 from libqtile.config import Click, Drag, Key
@@ -10,6 +9,7 @@ from screens import screens
 from layouts import layouts
 from groups import groups
 from widgets import widget_defaults
+from autostart import run_autostart
 
 for vt in range(1, 8):
     keys.append(
@@ -82,5 +82,6 @@ wmname = "LG3D"
 
 @hook.subscribe.startup_once
 def autostart():
-    home = os.path.expanduser('~/.config/qtile/scripts/autostart.sh')
-    subprocess.call(home)
+    # home = os.path.expanduser('~/.config/qtile/scripts/autostart.sh')
+    # subprocess.call(home)
+    run_autostart()

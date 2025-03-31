@@ -8,7 +8,8 @@ layouts = [
         # border_focus_stack=["#d75f5f", "#8f3d3d"], border_width=4
         border_focus=colors['primary'],
         border_normal=colors['inactive'],
-        border_width=2
+        border_width=2,
+        margin=5
         ),
     layout.Max(),
     # Add more layouts as needed
