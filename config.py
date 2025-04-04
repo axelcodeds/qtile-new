@@ -6,7 +6,7 @@ from libqtile.lazy import lazy
 
 from keys import keys, mod
 from screens import screens
-from layouts import layouts
+from layouts import layouts, floating_layout
 from groups import groups
 from widgets import widget_defaults
 from autostart import run_autostart
@@ -85,3 +85,9 @@ def autostart():
     # home = os.path.expanduser('~/.config/qtile/scripts/autostart.sh')
     # subprocess.call(home)
     run_autostart()
+
+# Para que floten las ventanas transitorias
+# @hook.subscribe.client_new
+# def floating_dialogs(window):
+#     if window.window.get_wm_transient_for():
+#         window.floating = True

@@ -1,6 +1,9 @@
 class Colors:
+    """Clase que alamecena los colores de los temas"""
+
     # Esquema Dracula (popular para desarrollo)
     DRACULA = {
+        'wallpaper': '1',
         'background': '#282a36',
         'foreground': '#f8f8f2',
         'primary': '#bd93f9',
@@ -14,6 +17,7 @@ class Colors:
 
     # Esquema Nord (colores fríos)
     NORD = {
+        'wallpaper': '2',
         'background': '#2e3440',
         'foreground': '#d8dee9',
         'primary': '#81a1c1',
@@ -27,6 +31,7 @@ class Colors:
 
     # Esquema Solarized Dark
     SOLARIZED_DARK = {
+        'wallpaper': '3',
         'background': '#002b36',
         'foreground': '#839496',
         'primary': '#268bd2',
@@ -40,6 +45,7 @@ class Colors:
 
     # Esquema personalizado (modifícalo a tu gusto)
     CUSTOM = {
+        'wallpaper': '4',
         'background': '#1a1b26',       # Fondo oscuro
         'foreground': '#a9b1d6',       # Texto principal
         'primary': '#7aa2f7',          # Azul brillante
@@ -50,6 +56,3 @@ class Colors:
         'inactive': '#565f89',         # Elementos inactivos
         'active': '#7dcfff'            # Elementos activos
     }
-
-# Selecciona el esquema de colores a usar (cambia DRACULA por tu preferencia)
-current_theme = Colors.CUSTOM

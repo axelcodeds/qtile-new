@@ -3,7 +3,7 @@ import subprocess
 from libqtile import widget
 from libqtile.lazy import lazy
 
-from colors import current_theme as colors
+from current_theme import colors
 
 widget_defaults = dict(
     font="UbuntuMono Nerd Font Bold",
@@ -25,7 +25,10 @@ widgets = [
         fontsize=30,
         padding=10,
         foreground=colors['primary'],
-        background=colors['background']
+        background=colors['background'],
+        mouse_callbacks={
+            "Button1": lazy.spawn("bash /home/arch/.config/qtile/scripts/update_system.sh"),
+        },
     ),
     widget.TextBox(
         text=" ",
@@ -35,7 +38,7 @@ widgets = [
         background=colors['primary'],
     ),
     widget.GenPollText(
-        update_interval=60,  # Actualizar cada 60 segundos
+        update_interval=30,
         func=lambda: subprocess.check_output("~/.config/qtile/scripts/disk_usage.sh", shell=True).decode("utf-8").strip(),
         padding=5,
         foreground=colors['background'],
@@ -86,6 +89,7 @@ widgets = [
         this_current_screen_border=colors['primary'],
         fontsize=25,
         font='D2coding Nerd Font',
+        disable_drag=True
     ),
     widget.Spacer(),
 
@@ -114,7 +118,22 @@ widgets = [
         display_map={'us': 'US', 'latam': 'Latam'},
         option='grp:win_space_toggle'
     ),
+    widget.TextBox(
+        text="\\",
+    ),
     widget.Systray(),
+    widget.TextBox(
+        text="\\",
+    ),
+    widget.GenPollText(
+        script="~/.config/qtile/scripts/battery.sh",
+        update_interval=5,  # Actualiza cada 10 segundos
+        func=lambda: subprocess.check_output(
+            "~/.config/qtile/scripts/battery.sh",
+            shell=True
+        ).decode("utf-8").strip(),
+        padding=5,
+    ),
     widget.TextBox(
         text="",
         fontsize=55,

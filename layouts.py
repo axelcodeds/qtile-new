@@ -1,7 +1,7 @@
 from libqtile import layout
 from libqtile.config import Match
 
-from colors import current_theme as colors
+from current_theme import colors
 
 layouts = [
     layout.Columns(
@@ -11,7 +11,7 @@ layouts = [
         border_width=2,
         margin=5
         ),
-    layout.Max(),
+    layout.Max()
     # Add more layouts as needed
 ]
 
@@ -25,5 +25,14 @@ floating_layout = layout.Floating(
         Match(wm_class="ssh-askpass"),  # ssh-askpass
         Match(title="branchdialog"),  # gitk
         Match(title="pinentry"),  # GPG key password entry
-    ]
+        Match(wm_class='Tk'),
+        Match(wm_class='tk'),
+        Match(wm_class="sysupdate"),  # Esto hará que la ventana flote
+
+        # Editor de NetworkManager
+        Match(wm_class="nm-connection-editor"),
+        Match(wm_class="Nm-connection-editor")
+    ],
+    border_focus=colors['primary'],
+    border_width=3
 )
